@@ -1,20 +1,22 @@
-/* ===== Cores: tema claro (padrão) e tema escuro ===== */
+/* ===== Cores: tema claro (rosa claro) e tema escuro ===== */
 :root {
-  --fundo: #eef1f4;
-  --texto: #1b2a3a;
-  --suave: #4d5d6d;
-  --destaque: #b9770e;   /* tom de madeira de violão */
-  --borda: #c9d1d9;
+  --fundo: #fdeef3;
+  --texto: #3a1f2b;
+  --suave: #7a5666;
+  --destaque: #b0245f;   /* rosa mais forte para links e detalhes */
+  --texto-botao: #ffffff;
+  --borda: #efc6d6;
   --campo: #ffffff;
   --erro: #b3261e;
 }
 :root[data-tema="escuro"] {
-  --fundo: #121a22;
-  --texto: #e6ebf0;
-  --suave: #9fb0c0;
-  --destaque: #e0a526;
-  --borda: #2c3a48;
-  --campo: #1a2530;
+  --fundo: #1f1319;
+  --texto: #f6e6ed;
+  --suave: #c9a4b4;
+  --destaque: #f48fb1;
+  --texto-botao: #1f1319;
+  --borda: #3d2a33;
+  --campo: #2a1b23;
   --erro: #ff8a80;
 }
 
@@ -52,9 +54,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ===== Seções ===== */
-.secao { max-width: 40rem; margin: 0 auto; padding: 5rem 1.25rem 3rem; }
+.secao { max-width: 40rem; margin: 0 auto; padding: 5rem 1.25rem 3rem; text-align: center; }
 .hero { padding-top: 8rem; }
-.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); margin: 0 0 1.5rem; }
+.hero h1 {
+  /* Fonte cursiva e delicada; se não carregar, usa a cursiva do sistema */
+  font-family: "Dancing Script", "Brush Script MT", cursive;
+  font-weight: 700; line-height: 1.15;
+  font-size: clamp(2.6rem, 9vw, 4.6rem); margin: 0 0 1.5rem;
+}
 .hero p { font-size: 1.15rem; color: var(--suave); }
 h2 { font-size: 2rem; margin-top: 0; }
 h3 { font-size: 1.1rem; margin-bottom: .25rem; color: var(--destaque); }
@@ -71,7 +78,7 @@ h3 { font-size: 1.1rem; margin-bottom: .25rem; color: var(--destaque); }
 .trabalhos p { margin: .25rem 0 0; color: var(--suave); }
 
 /* ===== Formulário ===== */
-form { display: grid; gap: .4rem; }
+form { display: grid; gap: .4rem; text-align: left; }
 label { font-weight: 600; margin-top: .6rem; }
 input, textarea {
   width: 100%; padding: .6rem .7rem; font: inherit;
@@ -81,11 +88,11 @@ input, textarea {
 input.invalido, textarea.invalido { border-color: var(--erro); }
 .erro { color: var(--erro); font-size: .9rem; min-height: 1.2em; }
 form button[type="submit"] {
-  justify-self: start; margin-top: .8rem; padding: .65rem 1.2rem;
-  background: var(--destaque); color: #121a22; font-weight: bold;
+  justify-self: center; margin-top: .8rem; padding: .65rem 1.2rem;
+  background: var(--destaque); color: var(--texto-botao); font-weight: bold;
   border: none; border-radius: 6px;
 }
-.confirmacao { color: var(--destaque); font-weight: 600; }
+.confirmacao { color: var(--destaque); font-weight: 600; text-align: center; }
 .rodape { text-align: center; padding: 2rem 1rem; color: var(--suave); border-top: 1px solid var(--borda); }
 
 /* ===== Celular: menu dinâmico que abre e fecha ===== */
