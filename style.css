@@ -1,0 +1,101 @@
+/* ===== Cores: tema claro (padrão) e tema escuro ===== */
+:root {
+  --fundo: #eef1f4;
+  --texto: #1b2a3a;
+  --suave: #4d5d6d;
+  --destaque: #b9770e;   /* tom de madeira de violão */
+  --borda: #c9d1d9;
+  --campo: #ffffff;
+  --erro: #b3261e;
+}
+:root[data-tema="escuro"] {
+  --fundo: #121a22;
+  --texto: #e6ebf0;
+  --suave: #9fb0c0;
+  --destaque: #e0a526;
+  --borda: #2c3a48;
+  --campo: #1a2530;
+  --erro: #ff8a80;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+
+/* ===== Menu fixo ===== */
+.topo {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .75rem 1.25rem;
+  background: var(--fundo);
+  border-bottom: 1px solid var(--borda);
+}
+.marca { font-family: Georgia, serif; font-weight: bold; color: var(--texto); text-decoration: none; }
+.menu { display: flex; gap: 1.25rem; align-items: center; }
+.menu a { color: var(--texto); text-decoration: none; }
+.menu a:hover { color: var(--destaque); }
+.btn-menu { display: none; }
+button { font: inherit; cursor: pointer; }
+.btn-tema, .btn-menu {
+  background: none; color: var(--texto);
+  border: 1px solid var(--borda); border-radius: 6px; padding: .3rem .7rem;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--destaque); outline-offset: 2px;
+}
+
+/* ===== Seções ===== */
+.secao { max-width: 40rem; margin: 0 auto; padding: 5rem 1.25rem 3rem; }
+.hero { padding-top: 8rem; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); margin: 0 0 1.5rem; }
+.hero p { font-size: 1.15rem; color: var(--suave); }
+h2 { font-size: 2rem; margin-top: 0; }
+h3 { font-size: 1.1rem; margin-bottom: .25rem; color: var(--destaque); }
+
+/* Seis linhas finas: as cordas de um violão */
+.cordas {
+  height: 34px; margin-bottom: 1.5rem;
+  background: repeating-linear-gradient(to bottom, var(--destaque) 0 1px, transparent 1px 7px);
+}
+
+.trabalhos { list-style: none; padding: 0; }
+.trabalhos li { padding: 1rem 0; border-top: 1px solid var(--borda); }
+.trabalhos a { font-weight: bold; color: var(--texto); }
+.trabalhos p { margin: .25rem 0 0; color: var(--suave); }
+
+/* ===== Formulário ===== */
+form { display: grid; gap: .4rem; }
+label { font-weight: 600; margin-top: .6rem; }
+input, textarea {
+  width: 100%; padding: .6rem .7rem; font: inherit;
+  background: var(--campo); color: var(--texto);
+  border: 1px solid var(--borda); border-radius: 6px;
+}
+input.invalido, textarea.invalido { border-color: var(--erro); }
+.erro { color: var(--erro); font-size: .9rem; min-height: 1.2em; }
+form button[type="submit"] {
+  justify-self: start; margin-top: .8rem; padding: .65rem 1.2rem;
+  background: var(--destaque); color: #121a22; font-weight: bold;
+  border: none; border-radius: 6px;
+}
+.confirmacao { color: var(--destaque); font-weight: 600; }
+.rodape { text-align: center; padding: 2rem 1rem; color: var(--suave); border-top: 1px solid var(--borda); }
+
+/* ===== Celular: menu dinâmico que abre e fecha ===== */
+@media (max-width: 640px) {
+  .btn-menu { display: inline-block; }
+  .menu {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: .8rem;
+    padding: 1rem 1.25rem; background: var(--fundo); border-bottom: 1px solid var(--borda);
+  }
+  .menu.aberto { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

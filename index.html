@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Portfólio pessoal de Ellen Martins: página única com navegação por âncoras -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ellen Martins | Portfólio</title>
+  <meta name="description" content="Portfólio online de Ellen Martins">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu fixo no topo: visível em todas as seções -->
+  <header class="topo">
+    <a class="marca" href="#sobre">Ellen Martins</a>
+    <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Navegação principal">
+      <a href="#sobre">Sobre mim</a>
+      <a href="#formacao">Formação</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+      <button id="btn-tema" class="btn-tema" type="button">Tema escuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="secao hero">
+      <h1>Olá, eu sou a Ellen Martins.</h1>
+      <div class="cordas" aria-hidden="true"></div>
+      <p>Sou formada em Comércio Exterior e falo inglês em nível avançado.</p>
+      <p>No meu tempo livre, toco guitarra.</p>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao" class="secao">
+      <h2>Formação</h2>
+      <h3>Educação</h3>
+      <p><strong>Comércio Exterior</strong><br>Estácio · curso concluído</p>
+      <h3>Idiomas</h3>
+      <p><strong>Inglês</strong><br>Nível avançado</p>
+    </section>
+
+    <!-- PORTFÓLIO: links para trabalhos já realizados -->
+    <section id="portfolio" class="secao">
+      <h2>Portfólio</h2>
+      <ul class="trabalhos">
+        <li>
+          <a href="https://github.com/Ellen600/portfolio-ellen-martins" target="_blank" rel="noopener">Este site</a>
+          <p>Portfólio feito com HTML, CSS e JavaScript, sem frameworks. O código está aberto no GitHub.</p>
+        </li>
+        <li>
+          <a href="https://github.com/Ellen600" target="_blank" rel="noopener">Meu perfil no GitHub</a>
+          <p>Meus repositórios e projetos de código.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTATO: formulário validado em JavaScript (envio simulado) -->
+    <section id="contato" class="secao">
+      <h2>Contato</h2>
+      <form id="form-contato" novalidate>
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name">
+        <span class="erro" id="erro-nome" role="alert"></span>
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+        <span class="erro" id="erro-email" role="alert"></span>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+        <span class="erro" id="erro-mensagem" role="alert"></span>
+
+        <button type="submit">Enviar mensagem</button>
+        <p id="confirmacao" class="confirmacao" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">© 2026 Ellen Martins</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
